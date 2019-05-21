@@ -1,0 +1,66 @@
+/*@import 'https://fonts.googleapis.com/css?family=Open+Sans';*/
+
+@font-face {
+    font-family: "monster";
+    src: url(../Fonts/Montserrat-Bold.ttf);
+}
+
+@font-face {
+    font-family: "myriad";
+    src: url(../Fonts/myriad-arabic-4.otf);
+}
+
+#date {
+    background: rgba(0, 0, 0, 0.1);
+    color: #fff;
+    font-family: "monster", sas-serif;
+    font-size: 2em;
+    padding: 0.5em;
+    text-align: center;
+    display: none;
+}
+
+#clock {
+    align-items: center;
+    -webkit-align-items: center;
+    display: flex;
+    display: -webkit-flex;
+    height: 110px;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+    left: calc(60% - 265px);
+    position: absolute;
+    top: calc(11% - 65px);
+    width: 333px;
+}
+
+.unit {
+    background: #00153d;
+    border-radius: 0px;
+    box-shadow: 0 2px 2px #444;
+    color: #edeaea;
+    font-family: "myriad";
+    font-size: 120pt;
+    font-weight: bold;
+    height: 100%;
+    line-height: 128px;
+    margin: 0 10px;
+    text-align: center;
+    text-shadow: 0 2px 2px #666;
+    width: 60%;
+    /*border-radius: 10px;*/
+}
+
+#seconds {
+    display: none;
+}
+
+#ampm {
+    display: none;
+}
+
+.seprator {
+    color: #fff;
+    font-family: "monster", sans-serif;
+    font-size: 8em;
+}

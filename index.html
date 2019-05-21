@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>AttendanceClock</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="Css/Style.css">
+    <link rel="stylesheet" href="Css/bootstrap.min.css">
+    <link rel="stylesheet" href="Css/Clock.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="center">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="grid-container">
+                    <div class="head">
+                        <p id="date"></p>
+                        <div id="clock">
+                            <p class="unit" id="hours"></p>
+                            <p class="seprator">:</p>
+                            <p class="unit" id="minutes"></p>
+                            <p class="unit" id="seconds"></p>
+                            <p class="unit" id="ampm"></p>
+                        </div>
+                    </div>
+                    <div class="middel">
+                        <div class="wrapper">
+                            <div class="goodmorning">
+                                <div class="setmarg1">
+                                    <p id="greeting">Good morning</p>
+                                    <p id="dateP">date</p>
+                                </div>
+                            </div>
+                            <div class="office">
+                                <div class="setmarg2">
+                                    <p id='main'>NY</p>
+                                    <p id='cent'>central office</p>
+                                </div>
+                            </div>
+                            <div class="empty">
+                                <img class="card" src="Images/card3.png">
+                                <p id='choose'>1.please first choose/change mode</p>
+                                <input type="text" name="id" id="id" autocomplete="off" style="background: #5799fe;border: none;color: #5799fe;outline: none;">
+                            </div>
+                            <div class="enter">
+
+                                <button class="enterbutton">ENTER</button>
+                                <button class="exitbutton">EXIT</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <p class="insercard">
+                            Please put your card
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog flipOutX  animated">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row info">
+                        <div id='headermodal'>
+                            <img class="img" src="Images/checked.png">
+                            <p id='enterdate' style="color: #6e705a;">Your <span id='enterexit' style="color:#719a3c;">Enter</span> Recorded succecfully. <br><span id='time' style="color: #719a3c;">12:36</span></p>
+                        </div>
+                        <div id='motdive'>
+                            <p id='mot' style="color: #005958;font-size: 20px;">Have a Great Shift</p>
+                        </div>
+                        <!--<div class="spanmodal" id="idspan">488</div>-->
+
+                        <div class="row" id='namedive'>
+                            <span id='namelabel' class="col-md-4 pull-left spanmodal">First Name</span>
+                            <div class="col-md-8 spanmodal pull-right" id="namespan">Jhon</div>
+                        </div>
+                        <div class="row" id='namedive'>
+                            <span id='namelabel' class="col-md-4 pull-left spanmodal">Last Name</span>
+                            <div class="col-md-8 spanmodal pull-right" id="familispan">Doe</div>
+                        </div>
+                        <div id='stagediv' class="row">
+                            <span id="stagelabel" class="col-md-12">Stage Name</span>
+                            <div class="spanmodal col-md-12" id="stagespan">Jhon Doe</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- end modal-->
+    <!-- Modal2 -->
+    <div id="errorModal" class="modal fade" role="dialog">
+        <div class="modal-dialog flipOutX  animated">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row info">
+                        <img src="Images/delete.png" style="width: 75px;margin-top: 30px;">
+                        <p id='error1'>Sorry</p>
+                        <p id='error2'>Your Card is Not Valid</p>
+                        <p id='error3'>Please Notify Your HD Department Or Your Direct Manager For Solving This Issue. </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- end modal2-->
+    <script src="Js/jquery.min.js"></script>
+    <script src="Js/bootstrap.min.js"></script>
+    <script src="Js/Clock.js"></script>
+    <script src="Js/Main.js"></script>
+
+    <script>
+        var isenter = 'true';
+        $(document).ready(function() {
+            $("#id").focus().on('blur', function() {
+                $(this).focus();
+            });
+            var enter = $(".enterbutton");
+            var exit = $(".exitbutton");
+            $('.enterbutton').click(function() {
+                //var test = $('#id').val();
+                //alert(test);
+                $('.enterbutton').attr('style', 'background:#158743;color: #e5e1e1;');
+                $('.exitbutton').attr('style', 'background: none;color: #4f4e4e;');
+                isenter = 'true';
+                //var time = GetTodayDate(); //for test
+                //greeting(isenter); //for test
+                //$("#errorModal").modal('show'); //for test
+                $('#id').val('');
+                $("#id").focus().on('blur', function() {
+                    $(this).focus();
+                });
+            });
+            $('.exitbutton').click(function() {
+
+                //var test = $('#id').val();
+                //alert(test);
+                $('.exitbutton').attr('style', ' background: #f95050;color: #e5e1e1;');
+                $('.enterbutton').attr('style', 'background: none;color: #4f4e4e;');
+                isenter = 'false';
+                //var time = GetTodayDate(); //for test
+                //greeting(isenter); //for test
+                //$("#myModal").modal('show'); //for test
+                $('#id').val('');
+                $("#id").focus().on('blur', function() {
+                    $(this).focus();
+                });
+            });
+            $("#id").keyup(function(event) {
+                if (event.keyCode === 13) {
+                    SendParameter();
+                }
+            });
+        });
+
+        function SendParameter() {
+            var CardNumber = $('#id').val();
+            var IsEnter = isenter;
+            GetData(CardNumber, IsEnter);
+            //console.log(CardNumber + '-' + IsEnter + '-' + now);
+        }
+    </script>
+</body>
+
+</html>
